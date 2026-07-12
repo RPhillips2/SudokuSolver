@@ -26,8 +26,8 @@ app.MapPost("/solve", (SudokuRequest request) =>
 {
     var solver = new Solver();
 
-    solver.set(request.Board);
-    return Results.Ok(solver.get());
+    var solvedBoard = solver.Solve(request.Board);
+    return Results.Ok(solvedBoard);
 });
 //.WithOpenApi();
 
